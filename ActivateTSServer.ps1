@@ -9,6 +9,7 @@ function _ActivateTSServer([string]$firstName,[string]$lastName,[string]$Company
     $TSwmi.LastName = $lastName;
     $TSwmi.Company = $Company;
     $TSwmi.CountryRegion = $CountryRegion;
+
     try {
         $TSwmi.Put(); # save        
     }
@@ -24,7 +25,7 @@ function _ActivateTSServer([string]$firstName,[string]$lastName,[string]$Company
     } 
     elseif ($wmiResult.ReturnValue -eq 1) 
     {
-        Write-Host "The Remote Desktop license server is not activated." -ForegroundColor Red
+        Write-Host "The Remote Desktop license server could not be activated." -ForegroundColor Red
     } 
     else {
         Write-Host "An unknown error occurred. It is not known whether the Remote Desktop license server is activated." -ForegroundColor DarkRed
